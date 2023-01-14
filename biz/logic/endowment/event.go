@@ -67,6 +67,7 @@ func (s *EventService) initState(ctx context.Context, driverId int64, event enum
 	}()
 
 	switch {
+
 	case st&billStateEnum > 0:
 		deferFunc(func() {
 			billState, err = s.getBillState(ctx, driverId, policyState.Policy.PolicyID)
