@@ -1,0 +1,13 @@
+
+[http]
+# http server address
+addr = ":8999"
+
+[mysql]
+
+dsn = "root:root@(127.0.0.1:3306)/sk?charset=utf8&parseTime=True&loc=Local"
+host = "127.0.0.1"
+table_default_shards_num = 100
+
+
+[redis]
