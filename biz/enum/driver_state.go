@@ -32,3 +32,7 @@ func (d DriverState) Desc() string {
 	}
 	return desc
 }
+
+func (d DriverState) Int() int {
+	return int(d)
+}

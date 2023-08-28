@@ -37,7 +37,36 @@ event的执行分为
 */
 
 func (s *EventService) Cancel(ctx context.Context, param *dto.CancelParam) error {
+	//metric
 	dState, oState, pState, bState, err := s.initState(ctx, param.DriverId, enum.EndowmentCancelEvent, billStateEnum, policyStateEnum, orderStateEnum, driverStateEnum)
+	if err != nil {
+		//metric
+		return err
+	}
+
+	dFunc, err := dState.Cancel(ctx)
+	if err != nil {
+		//metric
+		return err
+	}
+
+	oFunc, err := oState.Cancel(ctx)
+	if err != nil {
+		//metric
+		return err
+	}
+
+	pFunc, err := pState.Cancel(ctx)
+	if err != nil {
+		//metric
+		return err
+	}
+
+	bFunc, err := bState.Cancel(ctx)
+	if err != nil {
+		//metric
+		return err
+	}
 
 }
 
